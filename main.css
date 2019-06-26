@@ -10,6 +10,10 @@
 	background: #333;
 }
 
+.add-student{
+	margin: 15px;
+}
+
 .search-container{
 	text-align: center;
 	vertical-align: middle;
@@ -31,11 +35,10 @@
 
 .take-attendence-container{
 	text-align: center;
-	vertical-align: middle;
 }
 
 .take-attendence{
-	display: inline-block;
+
 	margin: 15px;
 }
 
