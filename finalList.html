@@ -29,18 +29,85 @@
 		</header>		
 	<br>
 	<br>
+<!-- selectors for present tardy absent -->
 
-
-<!-- 	<select id="myselect" onchange="change_myselect(this.value)">
+	<select id="myselect" onchange="change_myselect(this.value)">
 		<option value="">Choose an option:</option>
 		<option value="present">Present</option>
 		<option value="tardy">Tardy</option>
 		<option value="absent">Absent</option>
-	</select> -->
+	</select>
+
+<!-- 	<script>
+		function change_myselect(sel) {
+			var obj, dbParam, xmlhttp, myObj, x, txt = "";
+			obj = { table: sel, limit: 20 };
+			dbParam = JSON.stringify(obj);
+			xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					myObj = JSON.parse(this.responseText);
+					txt += "<table border='1'>"
+					for (x in myObj) {
+						txt += "<tr><td>" + myObj[x].name + "</td></tr>";
+					}
+					txt += "</table>"    
+					document.getElementById("demo").innerHTML = txt;
+				}
+			};
+			xmlhttp.open("POST", "json_demo_db_post.php", true);
+			xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xmlhttp.send("x=" + dbParam);
+		}
+	</script> -->
 
 <!-- source code for making a xml request and parsing the data -->
 
-<script type="text/Javascript">
+
+
+<script>
+	var xmlhttp = new XMLHttpRequest();
+	var url = "http://localhost:3000/studentid";
+
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var myArr = JSON.parse(this.responseText);
+			myFunction(myArr);
+		}
+	};
+	xmlhttp.open("GET", url, true);
+	xmlhttp.send();
+
+	function myFunction(arr) {
+		var presentppl = "present people = ";
+		var tardyppl = "tardy people = ";
+		var absentppl = "absent people = ";
+		var i;
+		var present = 'present'
+		var tardy = 'tardy'
+		var absent = 'absent'
+
+		for(i = 0; i < arr.length; i++) {
+			if((arr[i].attendence) == present){
+				presentppl +=  arr[i].name + "," + " ";
+			}
+		}
+		for(i = 0; i < arr.length; i++) {
+			if((arr[i].attendence) == tardy){
+				tardyppl +=  arr[i].name + "," + " ";
+			}
+		}
+		for(i = 0; i < arr.length; i++) {
+			if((arr[i].attendence) == absent){
+				absentppl +=  arr[i].name + "," + " ";
+			}
+		}
+		document.getElementById("id01").innerHTML = presentppl;
+		document.getElementById("id02").innerHTML = tardyppl;
+		document.getElementById("id03").innerHTML = absentppl;
+	}
+</script>
+<!-- <script type="text/Javascript">
 
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
@@ -54,14 +121,19 @@
 	xmlhttp.open("GET", "http://localhost:3000/studentid", true);
 	xmlhttp.send();
 
-  		</script>
+  		</script> -->
 
   		<div class="studentNames"> 
 			<div style="text-align:center;">
 
-						<span id="studentName"></span>
-					</div>
-				</div>
+						<span id="id01"></span>  
+					<br>
+						<span id="id02"></span>
+					<br>
+						<span id="id03"></span>
+
+			</div>
+		</div>
 
 
    	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -69,7 +141,7 @@
 		<div class="take-attendence-contianer">
 			<div class="take-attendence">
 				<div style="text-align:center;">
-					<button type="button" class="btn btn-outline-success" >Done</button>
+					<button type="button" class="btn btn-outline-success" ><a href="home.html">Done</a></button>
 				</div>
 			</div>
 		</div>
