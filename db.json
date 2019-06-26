@@ -1,0 +1,40 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "studentid": [
+    {
+      "id": 1,
+      "name": "some comment",
+      "postId": 1
+    },
+    {
+      "id": "95023863Test1"
+    },
+    {
+      "id": "95023863Test2"
+    },
+    {
+      "id": "95023863",
+      "name": "Alson Chan"
+    },
+    {
+      "id": "95023864",
+      "name": "Michael Jordan"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
