@@ -31,8 +31,55 @@
 	<br>
 
 
+<!-- 	<select id="myselect" onchange="change_myselect(this.value)">
+		<option value="">Choose an option:</option>
+		<option value="present">Present</option>
+		<option value="tardy">Tardy</option>
+		<option value="absent">Absent</option>
+	</select> -->
+
+<!-- source code for making a xml request and parsing the data -->
+
+<script type="text/Javascript">
+
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var myObj = JSON.parse(this.responseText);
+			document.getElementById("demo").innerHTML = myObj.name;
+			function myFunction() {
+				document.getElementById("studentName").innerHTML = myObj;
+		}
+	};
+	xmlhttp.open("GET", "http://localhost:3000/studentid", true);
+	xmlhttp.send();
+
+  		</script>
+
+  		<div class="studentNames"> 
+			<div style="text-align:center;">
+
+						<span id="studentName"></span>
+					</div>
+				</div>
+
+
+   	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+		<div class="take-attendence-contianer">
+			<div class="take-attendence">
+				<div style="text-align:center;">
+					<button type="button" class="btn btn-outline-success" >Done</button>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
 	<!-- <div class="list-container"> -->'
-	<div class="container">
+<!-- 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12">
 				<table>
@@ -62,23 +109,7 @@
    			</div>
    		</div>
    	</div>
-
-   	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-		<div class="take-attendence-contianer">
-			<div class="take-attendence">
-				<div style="text-align:center;">
-					<button type="button" class="btn btn-outline-success" >Done</button>
-				</div>
-			</div>
-		</div>
-
-
-
-
-
-
-
+ -->
 	
 
 

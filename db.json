@@ -13,25 +13,17 @@
       "postId": 1
     }
   ],
+  "classid": [
+    {
+      "classid": 1,
+      "postId": 1
+    }
+  ],
   "studentid": [
     {
-      "id": 1,
-      "name": "some comment",
-      "postId": 1
-    },
-    {
-      "id": "95023863Test1"
-    },
-    {
-      "id": "95023863Test2"
-    },
-    {
       "id": "95023863",
-      "name": "Alson Chan"
-    },
-    {
-      "id": "95023864",
-      "name": "Michael Jordan"
+      "name": "Alson Chan",
+      "presentortardy": "present"
     }
   ],
   "profile": {
